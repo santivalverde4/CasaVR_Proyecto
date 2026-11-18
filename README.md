@@ -7,7 +7,7 @@ Casa de dos pisos (un apartamento por piso, escalera exterior) creada a partir d
 * **Piso 2:** sala, cocina-comedor, dormitorio, baño, lavandería, balcón techado y pasillo exterior.
 * **Exterior:** porche de entrada, escalera, jardín frontal y trasero con árboles, césped y arbustos.
 
-## Requisitos (los mismos de tu proyecto actual)
+## Requisitos
 
 | Paquete | Versión |
 |---|---|
@@ -15,30 +15,6 @@ Casa de dos pisos (un apartamento por piso, escalera exterior) creada a partir d
 | XR Interaction Toolkit | 3.5.1 |
 | OpenXR Plugin | 1.17.1 |
 | XR Plugin Management | 4.5.0 |
-| Input System | 1.14.x (manejo de entrada: *Input System Package* o *Both*) |
-| URP | 17.3 (recomendado; también funciona con Built-in) |
-
-## Opción A (recomendada): importar en tu proyecto `ProyectoRealidadVirtual`
-
-1. `Assets > Import Package > Custom Package…` y elige **CasaVR.unitypackage**. Importa todo.
-2. Espera a que compile. Aparece el menú **CasaVR** en la barra superior.
-3. **CasaVR > 1. Configurar proyecto (Meta Quest + OpenXR)**
-   – Android ARM64, IL2CPP, API mínima 32, Vulkan, GameActivity, orientación Landscape Left.
-   – OpenXR para Android con *Meta Quest Support* y perfiles *Oculus Touch / Touch Plus / Touch Pro*
-     (Quest 2, 3, 3S y Pro); OpenXR también para PC (Quest Link).
-   – URP para VR autónoma (MSAA 4x, sin HDR, sombras ligeras).
-   – Importa la muestra **XR Interaction Simulator** de XRI para probar desde la computadora.
-   – Ofrece cambiar la plataforma a Android.
-4. **CasaVR > 2. Construir escena de la casa** → crea `Assets/CasaVR/Scenes/CasaVR.unity`
-   (se puede repetir cuando quieras; regenera la escena).
-5. **CasaVR > 3. Validar escena y proyecto** → lista de comprobación automática.
-6. **CasaVR > 4. Compilar APK para Meta Quest** → `Builds/CasaVR.apk`.
-
-## Opción B: abrir como proyecto nuevo
-
-Abre la carpeta `CasaVR_Proyecto` desde Unity Hub (*Add > Add project from disk*) con Unity 6000.3.21f1.
-Si aparece el aviso del Input System pidiendo activar el nuevo sistema de entrada, acepta (reinicia el editor).
-Luego sigue los pasos 3 a 6.
 
 ## Controles
 
@@ -51,23 +27,32 @@ Luego sigue los pasos 3 a 6.
 | Llaves (tubos), lavatorio, fregadero, pila y ducha | Apuntar + gatillo: la manija gira y corre el agua | E / clic |
 | **Menú de teletransporte** (en cualquier momento) | Botón **Menú** del control izquierdo, **Y** o **B** | **Tab** o **M** |
 
-### Menú de teletransporte (se abre en cualquier momento)
+### Menú de teletransporte
 
-1. Pulsa el botón de menú: en Quest **☰ (Menú) del control izquierdo**, o **Y** (control izquierdo) o **B**
-   (control derecho). En el simulador XR, **M**. En modo escritorio, **Tab** o **M**.
-2. El panel aparece delante de ti a ~1.25 m y un poco debajo de los ojos. Si hay una pared enfrente, se
-   coloca hacia el lado libre más cercano a tu mirada; siempre se ve del mismo tamaño y por encima de paredes
-   y muebles. El rayo y el control se dibujan encima del menú, así siempre ves a qué destino apuntas.
-3. Las tres categorías están a la vista a la vez, en columnas; la del piso donde estás aparece resaltada en
-   azul (y arriba dice "Estás en: …"):
+El menú de teletransporte permite desplazarse de forma inmediata a cualquier espacio de la vivienda y puede
+abrirse en cualquier momento de la experiencia.
+
+1. **Apertura.** En Meta Quest se abre con el botón **Menú (☰)** del control izquierdo, o con los botones
+   **Y** (control izquierdo) o **B** (control derecho). En el XR Interaction Simulator se utiliza la tecla
+   **M**, y en el modo escritorio, las teclas **Tab** o **M**.
+2. **Ubicación.** El panel se presenta frente al usuario, a aproximadamente 1.25 m y ligeramente por debajo
+   de la línea de visión. Si existe una pared en esa dirección, el sistema lo reubica hacia el lado libre más
+   cercano a la mirada. Su tamaño angular se mantiene constante y se dibuja por encima de paredes y muebles;
+   el rayo y el control se representan sobre el menú para indicar en todo momento el destino señalado.
+3. **Organización.** Los destinos se agrupan en tres categorías visibles de forma simultánea, una por columna.
+   La categoría correspondiente a la ubicación actual del usuario se resalta en azul y el encabezado indica
+   "Estás en: …".
    * **Piso 1:** Sala · Cocina y comedor · Dormitorio · Baño · Lavandería · Patio
    * **Piso 2:** Sala · Cocina y comedor · Dormitorio · Baño · Lavandería · Balcón techado · Pasillo exterior
    * **Exterior:** Entrada principal · Escalera · Jardín frontal · Jardín trasero
-4. Apunta con el rayo a un destino (se ilumina) y presiona el **gatillo** (en la computadora, clic). Te lleva
-   ahí con los pies en el piso, mirando hacia el interior, y el menú se cierra solo.
-5. Abajo: **Modo noche / Modo día** (para notar las luces) y **Cerrar** (o el mismo botón de menú).
+4. **Selección.** El destino se elige apuntándolo con el rayo, lo que lo resalta, y presionando el
+   **gatillo** (en la computadora, mediante clic). El usuario queda con los pies sobre el piso del destino,
+   orientado hacia el interior del espacio, y el menú se cierra automáticamente.
+5. **Opciones adicionales.** En la parte inferior se encuentran el botón **Modo noche / Modo día**, que
+   permite apreciar el efecto de la iluminación, y el botón **Cerrar**. El menú también se cierra al presionar
+   nuevamente el botón con que se abrió.
 
-`Blender/vistas_previas/menu_teletransporte.png` muestra el diseño del menú.
+El diseño del menú puede consultarse en `Blender/vistas_previas/menu_teletransporte.png`.
 
 ## Altura del jugador (tracking origin)
 
@@ -89,33 +74,11 @@ Luego sigue los pasos 3 a 6.
 Los muebles de sala, comedor, cocina, dormitorio, lavandería, patio y balcón se reacomodaron para que se
 pueda llegar caminando a **todos** los cuartos de los dos pisos y **rodear la mesa del comedor y la mesa de
 centro por los cuatro lados**. Se comprueba con un mapa de ocupación (mismas colisiones que Unity, puertas
-abiertas) y con la prueba PlayMode `Mesas_SePuedenRodearPorTodosLados`:
-
-| Paso | Ancho libre mínimo |
-|---|---|
-| Alrededor de la mesa del comedor (4 sillas) | 0.67 m |
-| Alrededor de la mesa de centro (entre sofá y mueble de TV) | 0.70 m |
-| Comedor → cocina → patio / balcón | 0.67 m |
-| Pasillo → dormitorio / baño | 0.70 m |
-| Puerta de la lavandería (con la hoja abierta) | 0.65 m |
-| Entrada principal | 0.85 m |
+abiertas) y con la prueba PlayMode `Mesas_SePuedenRodearPorTodosLados`.
 
 El jugador es una cápsula de **0.40 m** de diámetro (radio 0.20 + piel 0.02). Las puertas son sólidas:
 ábrelas con rayo + gatillo (o **E**) para pasar. Los mapas `vistas_previas/circulacion_piso1.png` y
 `circulacion_piso2.png` muestran en verde todo el piso alcanzable.
-
-### Si quieres más espacio
-
-* **Mover un mueble en Unity:** en la jerarquía, `Casa > Muebles piso 1` (o `piso 2`) → selecciona, por
-  ejemplo, `Mueble_P1_Comedor` o `Mueble_P1_Silla_1..4` y muévelo con la herramienta Move (W). Su
-  `BoxCollider` se mueve con él. Guarda la escena. (Si vuelves a usar *Construir escena*, se regenera desde
-  el modelo y se pierden esos cambios.)
-* **Cápsula del jugador más delgada:** `XR Origin (CasaVR)` → `Character Controller` → *Radius*
-  (0.2 por defecto; no bajes de 0.15). Para que quede fijo al reconstruir, cambia `cc.radius` en
-  `Scripts/Editor/CasaVRSceneBuilder.cs` (método `BuildPlayer`).
-* **Cambiar la distribución en el modelo:** posiciones en `Blender/scripts/furniture.py` (bloque
-  `# Sala / comedor / cocina`), luego `build.py`, `export.py` y *Construir escena*; `walkcheck.py` vuelve a
-  generar el mapa de circulación y avisa si algún cuarto queda sin acceso.
 
 ### Probar desde la computadora
 
@@ -125,20 +88,6 @@ El jugador es una cápsula de **0.40 m** de diámetro (radio 0.20 + piel 0.02). 
 * **Quest Link**: activa *Initialize XR on Startup* en *Project Settings > XR Plug-in Management* (pestaña PC).
   Viene apagado para que el simulador funcione sin errores de OpenXR. Con el visor conectado, el simulador se
   apaga solo.
-
-## Física (lo que corrige los errores de gravedad y colisiones)
-
-* El jugador es un `CharacterController` propio (`CasaVRPlayer`) sobre el `XR Origin`: gravedad real (-9.81 m/s²),
-  no puede volar, y el contacto con el piso se calcula con el `Move` que incluye la gravedad (no con el
-  movimiento horizontal), que es el fallo típico que hace que el jugador "flote" o atraviese el piso.
-* Si caminas físicamente con el visor, la cápsula sigue a la cabeza **con colisiones**: no puedes meter la
-  cabeza a través de una pared (la vista se empuja hacia atrás).
-* Paredes, losas, techo, columnas, marcos y celosía: `MeshCollider`. Muebles: `BoxCollider` estáticos.
-* Escaleras: rampas invisibles (`COL_Rampa_*`) que pasan por el centro de cada huella + `stepOffset` de 32 cm;
-  barandas con colisión para no caer entre los tramos.
-* Puertas: hoja con `BoxCollider` + `Rigidbody` cinemático; se detienen si van a golpear al jugador.
-  Abiertas, dejan el paso libre.
-* Límite del terreno con colisión invisible alrededor del jardín.
 
 ## Pruebas automáticas
 
@@ -168,18 +117,3 @@ Assets/CasaVR/
   Scripts/Tests               pruebas PlayMode
 Blender/                      .blend procesado y scripts de Python que generan el FBX
 ```
-
-## Rendimiento en Quest
-
-~53 000 triángulos en total, materiales URP Lit con texturas de 512–1024 px (ASTC), una luz direccional con
-sombra y luces puntuales sin sombras por habitación, batching estático. Para mejor calidad visual existe
-**CasaVR > Opciones > Hornear iluminación** (opcional; los interruptores siguen funcionando).
-
-## Notas
-
-* Para modificar el modelo: abre `Blender/CasaVR_proc.blend`, o regenéralo desde el `.blend` original con
-  `python3 Blender/scripts/build.py Blender/Apartamentos_Planos_Blender.blend <carpeta_salida> all` y luego
-  `python3 Blender/scripts/export.py <carpeta_salida>/CasaVR_proc.blend Assets/CasaVR/Models/CasaVR_Casa.fbx`
-  (requiere Blender 5.x como módulo `bpy` de Python). Después, **CasaVR > 2. Construir escena** otra vez.
-* `Blender/vistas_previas/` tiene las plantas con muebles/puertas y renders de cada espacio.
-* Habitación 3 (lavandería) es la más pequeña, como se pidió. La ventana alta pequeña del modelo queda en ella.

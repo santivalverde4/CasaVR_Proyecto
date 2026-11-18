@@ -1,0 +1,23 @@
+{
+    "name": "CasaVR.Tests",
+    "rootNamespace": "CasaVR.Tests",
+    "references": [
+        "CasaVR.Runtime",
+        "UnityEngine.TestRunner",
+        "Unity.InputSystem",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
